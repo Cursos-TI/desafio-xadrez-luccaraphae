@@ -11,11 +11,12 @@ int main() {
 
 
     //Exibindo as opções de peças, pedindo ao usuário que escolha e atribuindo o valor à variavél
-    printf("Vamos jogar Xadrez?\n"
+    printf("MateCheck - Vamos jogar Xadrez?\n"
            "Digite o número da peça que deseja movimentar: \n"
            "1 - Torre\n"
            "2 - Bispo\n"
-           "3 - Rainha\n");
+           "3 - Rainha\n"
+           "4 - Cavalo\n");
     scanf("%d", &opcao);
 
     
@@ -76,17 +77,93 @@ int main() {
         break;
 
 
+
+        // Nível Aventureiro - Movimentação do Cavalo
+        // Implementação de Movimentação do Cavalo com looping aninhado
+        case 4:
+            int movimento =1;
+            int direcaoInicial, direcaoFinal;
+            char *direcao1, *direcao2;
+            //Pedindo ao usuário a direção inicial do movimento
+            printf("\nDigite a direção inicial do movimento do cavalo:\n"
+                "1 - Para cima\n"
+                "2 - Para baixo\n"
+                "3 - Para esquerda\n"
+                "4 - Para direita\n");
+            //Lendo a opção escolhida e armazendo na variável
+            scanf("%d", &direcaoInicial);
+
+
+            //Atribuindo uma string de acordo com o número da opção escolhida para o movimento inicial
+            switch (direcaoInicial)
+            {
+            case 1:
+                direcao1 = "Cima";
+                break;
+            
+            case 2:
+                direcao1 = "Baixo";
+                break;
+            case 3:
+                direcao1 = "Esquerda";
+                break;
+            case 4:
+                direcao1 = "Direita";
+            default:
+                printf("Opção inválida");
+                break;
+            }
+
+
+            //Pedindo ao usuário a direção final do movimento
+            printf("\nDigite a direção final do movimento da sua peça:\n"
+                "1 - Para cima\n"
+                "2 - Para baixo\n"
+                "3 - Para esquerda\n"
+                "4 - Para direita\n");
+            //Lendo a opção escolhida e armazendo na variável
+            scanf("%d", &direcaoFinal);
+
+
+            //Atribuindo uma string de acordo com o número da opção escolhida para o movimento final
+            switch (direcaoFinal)
+            {
+            case 1:
+                direcao2 = "Cima";
+                break;
+            
+            case 2:
+                direcao2 = "Baixo";
+                break;
+            case 3:
+                direcao2 = "Esquerda";
+                break;
+            case 4:
+                direcao2 = "Direita";
+            default:
+                printf("Opção inválida");
+                break;
+            }
+
+
+            //Movimento de looping aninhando para imprimir a movimentação da peça
+            while (movimento--)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    printf("\n%s",direcao1); //imprime o resultado da opção escolhida pelo usuário no momvimento inicial
+                }
+
+                printf("\n%s", direcao2); //imprime o resultado da opção escolhida pelo usuário no momvimento final
+            };
+        
+        break;
+
         // Caso nenhum número válido para as opções seja digitado
         default:
             printf("Opçãos inválida!");
         break;
     };
-
-    
-
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
 
     // Nível Mestre - Funções Recursivas e Loops Aninhados
     // Sugestão: Substitua as movimentações das peças por funções recursivas.
